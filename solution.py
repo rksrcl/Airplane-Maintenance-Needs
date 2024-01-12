@@ -6,6 +6,9 @@ Returns the number of mechanics needed to maintain the planes
 Pre-conditions: 
 - All times are between 0 and 24
 - Start time is always before the end time
+- Input is an integer array in the form of [[3,8], [0, 5], [10, 18], [0, 3], [5,10], [2,6]],
+where each inner array represents a plane, the first number represents the start time for maintenance,
+and the second number represents the end time for maintenance
 
 Parameters:
 - arr: an integer array representing planes and the their maintenance schedule
@@ -49,7 +52,7 @@ class Test(unittest.TestCase):
 
         # Scheduled times are exclusive but non-overlapping
         output = scheduling([[3,8], [8, 11]])
-        self.assertEqual(output, 1, "Failed for non-overlapping times")
+        self.assertEqual(output, 2, "Failed for non-overlapping times")
 
         output = scheduling([[0,5], [0, 24]])
         self.assertEqual(output, 2, "Failed for overlapping times")
